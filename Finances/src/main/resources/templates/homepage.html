@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FinanceWell</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/homepage.css">
+</head>
+<body>
+    <header>
+        <h2>FinanceWell</h2>
+        <a th:href="@{/newaccount}"><button type="submit">Sign up</button></a>
+    </header>
+
+    <form th:action="@{/login}" th:method="get">
+        <label>Email:</label>
+        <input type="email" name="email">
+
+        <label>Password:</label>
+        <input type="password" name="password">
+
+        <button type="submit">Log in</button>
+    </form>
+    
+    <p th:text="${failLogin}"></p>
+
+    <section>
+        <h5>What's FinanceWell about</h5>
+        <p>FinanceWell is intended to provide people control, knowledge and awareness of their spendings. And it's simple as that: just create your document sheet to organize your spendings and incomes and easily take care of your finances.</p>
+    </section>
+
+    <footer>
+        <p><a href="http://www.instagram.com/franfonse" target="_blank">Francisco Fonseca</a>.</p>
+    </footer>
+    <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/script.js"></script>
+</body>
+</html>

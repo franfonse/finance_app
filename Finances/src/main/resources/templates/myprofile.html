@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FinanceWell</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/myprofile.css">
+</head>
+<body>
+    <header>
+        <h2>FinanceWell</h2>
+        <a th:href="@{/}"><button type="submit">Back</button></a>
+        <a th:href="@{/logout}"><button type="submit">Logout</button></a>
+
+        <nav>
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/mydocuments}">My Documents</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <h3>My profile</h3>
+    
+    <section>
+    	
+    	<p th:text="'Full name: ' + ${user.getName()} + ' ' + ${user.getSurname()}"></p>
+    	<p th:text="'Email: ' + ${user.getEmail()}"></p>
+    	<p th:text="'Username: ' + ${user.getUsername()}"></p>
+    	<p th:text="'Documents created: ' + ${user.getListDocuments().size()}"></p>
+    	<p th:text="'Date created account: ' + ${user.getDate()}"></p>
+    	<p th:text="'Status: ' + ${user.getAuthorities()}"></p>
+    
+    </section>
+    
+    <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/script.js"></script>
+</body>
+</html>

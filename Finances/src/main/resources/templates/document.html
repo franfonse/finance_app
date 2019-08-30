@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FinanceWell</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/document.css">
+</head>
+
+<body>
+    <header>
+        <h2>FinanceWell</h2>
+        <a th:href="@{/logout}"><button type="submit">Log out</button></a>
+        <nav>
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/mydocuments}">My Documents</a></li>
+                <li><a th:href="@{/newdocument}">New Document</a></li>
+			</ul>
+        </nav>
+    </header>
+    
+    <section class="doc_view">
+    	<form th:action="@{/delete_document}" th:object="${doc}" th:method="DELETE">
+    		<h3 th:text="${doc.getTitle()}"></h3>
+    		<p th:text="${yearMonth}"></p>
+    		<output th:text="'Balance: ' + ${doc.getBalance()}"></output>
+    		<table>
+    			<tr>
+    				<th>Expenses</th>
+    			</tr>
+    			<tr th:each="exp: ${doc.getExpenses()}">
+    				<td th:text="${exp.getValue()}"></td>
+    				<td th:text="${exp.getDate()}"></td>
+    				<td><a th:href="@{/delete_expense(idExpense=${exp.getIdExpense()})}">Delete expense</a></td>
+    			</tr>
+    		</table>
+    		<a th:href="@{/new_expense(idDocument=${doc.getIdDocument()})}">Add expense</a>
+    		<table>
+    			<tr>
+    				<th>Incomes</th>
+    			</tr>
+    			<tr th:each="inc: ${doc.getIncomes()}">
+    				<td th:text="${inc.getValue()}"></td>
+    				<td th:text="${inc.getDescription()}"></td>
+    				<td th:text="${inc.getDate()}"></td>
+    				<td><a th:href="@{/delete_income(idIncome=${inc.getIdIncome()})}">Delete income</a></td>
+    			</tr>
+    		</table>
+    		<a th:href="@{/new_income(idDocument=${doc.getIdDocument()})}">Add income</a>
+    		<button type="submit">Delete document</button>
+    	</form>
+    </section>
+
+    <footer>
+
+    </footer>
+
+    <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/script.js"></script>
+</body>
+</html>

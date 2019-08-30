@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FinanceWell</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/register.css">
+</head>
+
+<body>
+    <header>
+        <h2>FinanceWell</h2>
+    </header>
+
+    <form th:action="@{/register}" th:object="${user}" th:method="post">
+    <label>Name:</label>
+    <input type="text" th:field="*{name}">
+    
+    <label>Lastname:</label>
+    <input type="text" th:field="*{surname}">
+
+    <label>Email:</label>
+    <input type="email" th:field="*{email}">
+    
+    <label>Username:</label>
+    <input type="text" th:field="*{username}">
+
+    <label>Password:</label>
+    <input type="password" th:field="*{password}">
+    
+    <label>Repeat Password:</label>
+    <input type="password" name="password2">
+
+    <button type="submit">Sign up</button>
+    </form>
+    
+    <p th:text="${registered}"></p>
+    <p th:text="${takenUsername}"></p>
+    <p th:text="${wrongpass}"></p>
+
+    <footer>
+        <p>Made by <a>Francisco Fonseca</a>.</p>
+    </footer>
+    <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/script.js"></script>
+</body>
+
+</html>

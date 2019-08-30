@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FinanceWell</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/documents.css">
+</head>
+
+<body>
+    <header>
+        <h2>FinanceWell</h2>
+        <a th:href="@{/logout}"><button type="submit">Log out</button></a>
+        <nav>
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/mydocuments}">My Documents</a></li>
+                <li><a th:href="@{/newdocument}">New Document</a></li>
+                <li><a th:href="@{/myprofile}">My Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+	<section class="my_docs">
+		<h3>My documents</h3>
+		<div th:each="docs: ${documents}">
+			<p th:text="${docs.getTitle()}"></p>
+			<form th:action="@{/viewdocument}" th:object="${docs}" th:method="get">
+			
+			<input type="hidden" th:value="*{idDocument}" name="idDocument">
+			<button type="submit"><ion-icon name="eye"></ion-icon></button>
+			
+			</form>
+		</div>
+		
+    </section>
+    
+    <section>
+        <h3>To-do's</h3>
+    </section>
+
+    <footer>
+        <ul>
+            <li>Leave me a feedback</li>
+            <li>About me</li>
+            <li>Instagram</li>
+        </ul>
+    </footer>
+    <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/script.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</body>
+
+</html>

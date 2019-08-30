@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FinanceWell</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/editdocument.css">
+</head>
+
+<body>
+    <header>
+        <h2>FinanceWell</h2>
+        <a th:href="@{/logout}"><button type="submit">Log out</button></a>
+        <nav>
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/mydocuments}">My Documents</a></li>
+                <li><a th:href="@{/newdocument}">New Document</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <form th:action="@{/add_expense(idDocument=${idDocument})}" th:object="${exp}" th:method="post">
+    	<label>Ammount:</label>
+    	<input type="number" th:field="*{value}">
+    	<label>Description:</label>
+    	<input type="text" th:field="*{description}">
+    	<label>Day (optional):</label>
+    	<input type="number" name="day">
+    	<button type="submit">Add</button>
+    </form>
+
+    <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/script.js"></script>
+</body>
+
+</html>

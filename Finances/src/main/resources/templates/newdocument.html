@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FinanceWell</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/newdocument.css">
+</head>
+
+<body>
+    <header>
+        <h2>FinanceWell</h2>
+    </header>
+
+    <form th:action="@{/create_document}" th:method="post">
+        <label>Name of new document:</label>
+        <input type="text" name="title">
+        
+        <div>
+        <label>Year:</label>
+        <select name="year">
+        	<option value="2018">2018</option>
+        	<option value="2019">2019</option>
+        	<option value="2020">2020</option>
+        	<option value="2020">2021</option>
+        </select>
+        <label>Month:</label>
+        <select name="month">
+        	<option value="0">January</option>
+        	<option value="1">February</option>
+        	<option value="2">March</option>
+        	<option value="3">April</option>
+        	<option value="4">May</option>
+        	<option value="5">June</option>
+        	<option value="6">July</option>
+        	<option value="7">August</option>
+        	<option value="8">September</option>
+        	<option value="9">October</option>
+        	<option value="10">November</option>
+        	<option value="11">December</option>
+        </select>
+        </div>
+
+        <button type="submit">Create document</button>
+    </form>
+
+    <footer>
+
+    </footer>
+    <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/script.js"></script>
+</body>
+
+</html>
